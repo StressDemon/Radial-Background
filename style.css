@@ -1,0 +1,31 @@
+body{
+    margin: 0;
+}
+
+@property --rotate{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: true;
+}
+
+.radial-bg {
+    height: 100vh;
+    position: relative;
+    background-image: 
+        conic-gradient(
+            from var(--rotate),
+            #604030,
+            #AAA
+        )
+    ;
+    z-index: -1;
+    animation: rotateAnimation 5s linear infinite;
+}
+
+@keyframes rotateAnimation{
+    from{
+        --rotate: 0deg;
+    }to{
+        --rotate: -360deg;
+    }
+}
